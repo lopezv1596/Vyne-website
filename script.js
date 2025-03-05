@@ -10,7 +10,15 @@ document.addEventListener("DOMContentLoaded", function () {
         appendToTerminal("🟢 Welcome to Vyne! Ask me anything or try commands like:");
         appendToTerminal("➡️ 'who are you', 'what can you do', 'help', 'scan', 'analyze', 'execute'");
         appendToTerminal("💡 Type your question below and press ENTER.");
+function appendToTerminal(text) {
+    let newLine = document.createElement("div");
+    newLine.innerText = text; // Fix text rendering issues
+    terminalOutput.appendChild(newLine);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll
+}
+
     }
+
 
     // **Vyne's AI Response Function**
     function sendCommand() {
