@@ -10,6 +10,24 @@ body {
     padding: 0;
 }
 
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        text-align: center;
+    }
+
+    .terminal {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #command-input {
+        width: 80%;
+    }
+}
+
+
 /* ⚡ Neon Glow for Vyne Logo */
 .logo {
     width: 150px;

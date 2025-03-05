@@ -13,6 +13,35 @@ document.addEventListener("DOMContentLoaded", function () {
         appendToTerminal("💡 Type your question below and press ENTER.");
     }
 
+
+function typeResponse(text, index = 0) {
+    if (index < text.length) {
+        terminalOutput.lastChild.innerHTML += text[index]; 
+        setTimeout(() => typeResponse(text, index + 1), 20); // Adjust speed here
+    }
+}
+
+function appendToTerminal(text) {
+    let newLine = document.createElement("div");
+    newLine.innerText = ""; // Start with an empty line
+    terminalOutput.appendChild(newLine);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll
+    typeResponse(text); // Start typing effect
+}
+
+
+function sendCommand() {
+    let command = inputField.value.trim().toLowerCase();
+    if (command === "") return;
+    
+    appendToTerminal(`> ${command}`);
+    inputField.value = ""; // Clear input field
+    inputField.focus(); // Auto-focus input after response
+
+    // Rest of your AI response logic...
+}
+
+
     // **Vyne’s Response Function**
     function sendCommand() {
         let command = inputField.value.trim().toLowerCase();
