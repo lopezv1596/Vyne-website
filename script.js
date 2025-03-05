@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (command === "") return;
 
         appendToTerminal(`> ${command}`);
-       
+
         // Vyne's AI-like Dynamic Responses
         const responses = {
             "hi": [
@@ -129,13 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    document.getElementById("run-button").addEventListener("click", sendCommand);
+    runButton.addEventListener("click", sendCommand);
 
     // **🚀 Show Welcome Message when Page Loads**
     showWelcomeMessage();
 
     // **🚀 Floating Help Button**
-    document.getElementById("help-button").addEventListener("click", function () {
+    helpButton.addEventListener("click", function () {
         appendToTerminal("🆘 **Vyne Help Guide:**\nTry commands like: 'who are you', 'scan', 'analyze', 'execute'.\nFor a secret, try: 'tell me a secret' 😉");
     });
 });
