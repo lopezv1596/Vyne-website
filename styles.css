@@ -2,6 +2,21 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap');
 
+/* 🔥 Neon Glow Effect for Vyne Logo */
+.logo {
+    width: 150px; /* Adjust as needed */
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 10px #00ffff) drop-shadow(0 0 20px #00ffff); 
+    transition: all 0.3s ease-in-out;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 15px #00ffff) drop-shadow(0 0 30px #00ffff); 
+    transform: scale(1.05);
+}
+
+
 /* Reset and Base Styles */
 * {
     margin: 0;
