@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+
+.terminal {
+    background-color: black;
+    color: lime;
+    padding: 15px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    margin-top: 30px;
+    text-align: left;
+    font-family: monospace;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+#terminal-output {
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#command-input {
+    width: calc(100% - 60px);
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background: black;
+    color: lime;
+    font-family: monospace;
+}
+
+button {
+    background: lime;
+    color: black;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+button:hover {
+    background: lightgreen;
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0e0e0e;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(173, 216, 230, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 15px rgba(173, 216, 230, 1));
+    }
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.button {
+    background-color: #ff9800;
+    color: #000;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.5);
+}
+
+.button:hover {
+    background-color: #ffb74d;
+    box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
+    transform: scale(1.05);
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.features li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.features li:hover {
+    transform: scale(1.1);
+}
+
+.features li::before {
+    content: "✔";
+    color: #4CAF50;
+    font-size: 1.5rem;
+}
+
+.email-link {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.email-link:hover {
+    color: #ffb74d;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

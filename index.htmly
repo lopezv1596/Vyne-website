@@ -4,44 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vyne – AI That Runs 100% Offline</title>
-
-    <!-- Link Styles -->
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="container">
-        <!-- LOGO -->
         <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo">
-
-        <!-- TITLE & DESCRIPTION -->
         <h1>Vyne – AI That Runs 100% Offline</h1>
-        <p class="description">Fully private, adaptive, and powerful. No cloud. No limits.</p>
+        <p>Fully private, adaptive, and powerful. No cloud. No limits.</p>
 
-        <!-- WATCH DEMO BUTTON -->
-        <a href="https://youtu.be/3P_qU4ZhE7k" class="button" target="_blank">▶ Watch Demo</a>
-
-        <!-- FEATURES LIST -->
+        <a href="https://youtu.be/3P_qU4ZhE7k" class="button" target="_blank">Watch Demo</a>
+        
         <ul class="features">
-            <li>⚡ Runs completely offline</li>
-            <li>🧠 Learns & adapts over time</li>
-            <li>💻 Executes real system commands</li>
+            <li>Runs completely offline</li>
+            <li>Learns & adapts over time</li>
+            <li>Executes real system commands</li>
         </ul>
 
-        <!-- 🚀 FUTURISTIC TERMINAL -->
+        <!-- 🚀 Terminal Interface -->
         <div class="terminal">
             <div id="terminal-output"></div>
             <input type="text" id="command-input" placeholder="Type a command..." onkeypress="handleKeyPress(event)">
             <button onclick="sendCommand()">Run</button>
         </div>
 
-        <!-- CONTACT INFO -->
         <p>Contact me at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
     </div>
 
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Loads the JS file -->
 </body>
 </html>
 
