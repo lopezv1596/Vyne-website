@@ -4,10 +4,15 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 
-@app.route("/")
-def home():
-    """Render the main page."""
-    return render_template("index.html")
+@app.route("/run-command", methods=["POST"])
+def run_command():
+    data = request.get_json()
+    user_input = data.get("command", "")
+
+    # Send user input to Vyne’s AI model for a real response
+    response = chat_with_vyne(user_input)  
+
+    return jsonify({"response": response})
 
 
 @app.route("/run-command", methods=["POST"])
