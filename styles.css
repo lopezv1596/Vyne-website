@@ -1,102 +1,138 @@
-/* 🌌 Cyberpunk / Matrix Theme */
+/* 🔥 Vyne – Cyberpunk AI UI Enhancements */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
     background-color: #000;
-    color: #00ff99;
-    font-family: 'Inter', sans-serif;
+    color: #0ff;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* 🔥 Neon Glow Effect for Vyne Logo */
+/* ⚡ Neon Glow for Vyne Logo */
 .logo {
-    width: 150px; 
-    display: block;
-    margin: 0 auto;
-    filter: drop-shadow(0 0 10px #00ff99) drop-shadow(0 0 20px #00ff99); 
-    transition: all 0.3s ease-in-out;
+    width: 150px;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 20px #0ff);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 15px #00ff99) drop-shadow(0 0 30px #00ff99); 
-    transform: scale(1.05);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px #0ff);
 }
 
-/* ✨ Terminal Style */
+/* 🔥 Title & Subtitle Effects */
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #0ff;
+    opacity: 0.8;
+}
+
+/* 🟢 Terminal Styling */
 .terminal {
     background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #00ff99;
-    box-shadow: 0px 0px 15px #00ff99;
+    border: 2px solid #0ff;
+    border-radius: 10px;
     padding: 15px;
     margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-/* 📟 Terminal Output */
-#terminal-output {
-    font-family: 'Courier New', monospace;
-    color: #00ff99;
-    height: 250px;
+    width: 60%;
+    min-height: 250px;
     overflow-y: auto;
-    text-align: left;
-    white-space: pre-wrap; /* Ensures text wraps properly */
-    word-wrap: break-word;
-    padding: 10px;
-    background-color: #000;
+    box-shadow: 0 0 20px #0ff;
 }
 
-/* 🔲 Input Field */
+/* 🚀 Terminal Output Enhancements */
+#terminal-output {
+    font-size: 1rem;
+    text-align: left;
+    color: #0ff;
+    white-space: pre-line;
+}
+
+/* 🎤 Typing Effect Simulation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typing {
+    display: inline-block;
+    border-right: 2px solid #0ff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2s steps(40, end);
+}
+
+/* 📟 Terminal Input Field */
 #command-input {
     width: 80%;
     padding: 10px;
-    background: #000;
-    border: 2px solid #00ff99;
-    color: #00ff99;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#command-input:focus {
-    outline: none;
-    box-shadow: 0px 0px 10px #00ff99;
-}
-
-/* 🚀 Run Button */
-button {
-    padding: 10px 15px;
-    background-color: #00ff99;
-    color: #000;
-    font-weight: bold;
+    font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    outline: none;
+    background: #000;
+    color: #0ff;
+    border-bottom: 2px solid #0ff;
+    text-align: center;
+}
+
+/* 🔘 Run Button */
+button {
+    background: transparent;
+    color: #0ff;
+    border: 2px solid #0ff;
+    padding: 10px 20px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px #00ff99;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
 }
 
 button:hover {
-    background-color: #007755;
-    box-shadow: 0px 0px 15px #00ff99;
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 20px #0ff;
 }
 
-/* ❔ Help Button */
+/* 🔥 Help Button (Floating) */
 .floating-help {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #00ff99;
+    background: #0ff;
     color: #000;
-    font-weight: bold;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 15px;
+    border-radius: 50px;
+    padding: 12px 20px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px #00ff99;
+    font-weight: bold;
+    box-shadow: 0 0 15px #0ff;
 }
 
 .floating-help:hover {
-    background: #007755;
-    box-shadow: 0px 0px 15px #00ff99;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 25px #0ff;
+}
+
+/* 🎬 Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .terminal {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
 }
 
