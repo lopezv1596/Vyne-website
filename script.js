@@ -2,6 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const terminalOutput = document.getElementById("terminal-output");
     const inputField = document.getElementById("command-input");
 
+    // **🚀 Auto-show a welcome message on page load**
+    function showWelcomeMessage() {
+        appendToTerminal("🟢 Welcome to Vyne! Ask me anything or try commands like:");
+        appendToTerminal("➡️ 'who are you', 'what can you do', 'help', 'scan', 'analyze', 'execute'");
+        appendToTerminal("💡 Type your question below and press ENTER.");
+    }
+
     function sendCommand() {
         let command = inputField.value.trim().toLowerCase();
         if (command === "") return;
@@ -24,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 "I analyze, process, execute commands, and evolve based on interactions.",
                 "Right now, I’m in preview mode. But my full version? No limits.",
                 "I assist, adapt, and learn. The real Vyne is even more powerful."
+            ],
+            "help": [
+                "🆘 **Vyne Help Guide:**",
+                "Type your question or try commands like: 'who are you', 'scan', 'analyze', 'execute'.",
+                "For a secret, try: 'tell me a secret' 😉"
             ],
             "scan": [
                 "🔍 Scanning system files... (Demo Mode: Limited access)",
@@ -115,5 +127,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById("run-button").addEventListener("click", sendCommand);
+
+    // **🚀 Show Welcome Message when Page Loads**
+    showWelcomeMessage();
+
+    // **🚀 Floating Help Button**
+    document.getElementById("help-button").addEventListener("click", function () {
+        appendToTerminal("🆘 **Vyne Help Guide:**\nTry commands like: 'who are you', 'scan', 'analyze', 'execute'.\nFor a secret, try: 'tell me a secret' 😉");
+    });
 });
 
