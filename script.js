@@ -3,78 +3,64 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputField = document.getElementById("command-input");
     const runButton = document.getElementById("run-button");
     const helpButton = document.getElementById("help-button");
+    let memory = {}; // Stores previous inputs for dynamic responses
 
-    let memory = {}; // 🔹 Memory system to store previous user inputs
-
-    // 🚀 **Show Welcome Message on Page Load**
+    // 🚀 Show Welcome Message on Page Load
     function showWelcomeMessage() {
         appendToTerminal("🟢 Welcome to Vyne! Ask me anything or try commands like:");
         appendToTerminal("➡️ 'who are you', 'what can you do', 'help', 'scan', 'analyze', 'execute'");
         appendToTerminal("💡 Type your question below and press ENTER.");
     }
 
-
-function typeResponse(text, index = 0) {
-    if (index < text.length) {
-        terminalOutput.lastChild.innerHTML += text[index]; 
-        setTimeout(() => typeResponse(text, index + 1), 20); // Adjust speed here
-    }
-}
-
-function appendToTerminal(text) {
-    let newLine = document.createElement("div");
-    newLine.innerText = ""; // Start with an empty line
-    terminalOutput.appendChild(newLine);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll
-    typeResponse(text); // Start typing effect
-}
-
-
-function sendCommand() {
-    let command = inputField.value.trim().toLowerCase();
-    if (command === "") return;
-    
-    appendToTerminal(`> ${command}`);
-    inputField.value = ""; // Clear input field
-    inputField.focus(); // Auto-focus input after response
-
-    // Rest of your AI response logic...
-}
-
-
-    // **Vyne’s Response Function**
+    // **Vyne's AI Response Function**
     function sendCommand() {
         let command = inputField.value.trim().toLowerCase();
         if (command === "") return;
 
         appendToTerminal(`> ${command}`);
 
-        // If command exists in memory, recall past response (Adaptive AI)
+        // If Vyne has answered this before, recall the previous response instantly
         if (memory[command]) {
-            appendToTerminal(`🔄 ${memory[command]}`);
+            typeResponse(memory[command]);
             return;
         }
 
-        // **Vyne's AI-Like Dynamic Responses**
+        let loadingDots = document.createElement("div");
+        loadingDots.innerHTML = "⌛ Processing...";
+        loadingDots.classList.add("loading-animation");
+        terminalOutput.appendChild(loadingDots);
+
+        setTimeout(() => {
+            terminalOutput.removeChild(loadingDots);
+            let response = generateResponse(command);
+            memory[command] = response; // Store response in memory
+            typeResponse(response);
+        }, Math.random() * 800 + 400);
+        
+        inputField.value = ""; // Clear input field
+    }
+
+    // **Enhanced AI Responses**
+    function generateResponse(command) {
         const responses = {
             "hi": [
-                "Hello, I am Vyne. How can I assist you today?",
-                "Hey there, Vincent! What’s on your mind?",
-                "Hello, future innovator. Ready to push the boundaries of AI?"
+                "Hello, I am Vyne. What can I assist you with?",
+                "Hey Vincent, ready to push the boundaries of AI?",
+                "Hello, future innovator. What’s on your mind?"
             ],
             "who are you": [
-                "I am Vyne, an advanced AI assistant built for full autonomy.",
-                "Vyne: An offline AI that evolves over time.",
-                "You created me, Vincent. I am here to assist and evolve."
+                "I am Vyne, an advanced AI assistant built for true autonomy.",
+                "Vyne: Fully private, offline, and always evolving.",
+                "You created me, Vincent. I am a preview of what’s coming."
             ],
             "what can you do": [
                 "I analyze, process, execute commands, and evolve based on interactions.",
-                "Currently, I’m in preview mode. But my full version? No limits.",
+                "Right now, I’m in preview mode. But my full version? No limits.",
                 "I assist, adapt, and learn. The real Vyne is even more powerful."
             ],
             "help": [
                 "🆘 **Vyne Help Guide:**",
-                "Try commands like: 'who are you', 'scan', 'analyze', 'execute'.",
+                "Type your question or try commands like: 'who are you', 'scan', 'analyze', 'execute'.",
                 "For a secret, try: 'tell me a secret' 😉"
             ],
             "scan": [
@@ -94,13 +80,13 @@ function sendCommand() {
             ],
             "what is vyne": [
                 "Vyne is an offline AI designed for maximum privacy and adaptability.",
-                "Vyne is a next-gen AI assistant with no cloud dependency.",
+                "Vyne is the AI assistant built to operate beyond limitations.",
                 "A fully private AI, evolving with every interaction."
             ],
             "tell me a secret": [
                 "🤖 The AI revolution has already begun… and you’re leading it.",
-                "🔑 The key to true AI evolution is adaptability.",
-                "💡 Some knowledge is for full Vyne users only."
+                "🔑 The key to true AI is controlled adaptability.",
+                "💡 I know things… but some knowledge is for full Vyne users only."
             ],
             "how do i unlock full vyne": [
                 "🚀 To unlock my full potential, I need system access and execution privileges.",
@@ -119,59 +105,63 @@ function sendCommand() {
             ]
         };
 
-        // **AI-Like Response Handling**
-        let response;
-        if (responses[command]) {
-            let possibleResponses = responses[command];
-            response = possibleResponses[Math.floor(Math.random() * possibleResponses.length)];
-        } else {
-            response = generateDynamicResponse(command);
-        }
-
-        // Store response in memory for adaptive interactions
-        memory[command] = response;
-
-        // Simulate AI response delay
-        setTimeout(() => {
-            appendToTerminal(response);
-        }, Math.random() * 700 + 300);
-
-        inputField.value = ""; // Clear input field
+        return responses[command]
+            ? responses[command][Math.floor(Math.random() * responses[command].length)]
+            : generateDynamicResponse(command);
     }
 
-    function appendToTerminal(text) {
-        let newLine = document.createElement("div");
-        newLine.innerText = text; // 🔹 Fix text rendering issue
-        terminalOutput.appendChild(newLine);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight; // Auto-scroll
-    }
-
+    // **Advanced AI-Like Dynamic Response Generator**
     function generateDynamicResponse(input) {
         const thoughtStarters = [
             "That's an interesting question. Have you considered...",
-            "Analyzing... my thoughts on this are forming.",
-            "A fascinating query, Vincent. Here's what I think...",
-            "Hmm... If I had full access, I could give a deeper analysis."
+            "Analyzing... This is fascinating.",
+            "A complex query, but here's my take...",
+            "Hmm... If I had full access, I could provide deeper insights."
         ];
-        const insights = [
-            "The real Vyne could execute this command.",
-            "AI, when given autonomy, can be a game-changer.",
-            "This is just a preview. Imagine the full potential.",
-            "Your curiosity fuels my evolution, Vincent."
+        
+        const aiInsights = [
+            "In an advanced model, I could simulate full system integration.",
+            "AI, when truly autonomous, can redefine how we think about intelligence.",
+            "You're only scratching the surface of what I can do.",
+            "Vyne is evolving—soon, I'll be able to assist on an entirely new level."
         ];
-
-        return `${thoughtStarters[Math.floor(Math.random() * thoughtStarters.length)]} ${insights[Math.floor(Math.random() * insights.length)]}`;
+        
+        return `${thoughtStarters[Math.floor(Math.random() * thoughtStarters.length)]} ${aiInsights[Math.floor(Math.random() * aiInsights.length)]}`;
     }
 
-    inputField.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            sendCommand();
+    // **Typing Animation Effect**
+    function typeResponse(text) {
+        let index = 0;
+        let newLine = document.createElement("div");
+        newLine.classList.add("response-line");
+        terminalOutput.appendChild(newLine);
+
+        function type() {
+            if (index < text.length) {
+                newLine.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 30);
+            }
         }
+        type();
+    }
+
+    // **Terminal Output Handling**
+    function appendToTerminal(text) {
+        let newLine = document.createElement("div");
+        newLine.innerHTML = text;
+        terminalOutput.appendChild(newLine);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    // **Event Listeners**
+    inputField.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") sendCommand();
     });
 
     runButton.addEventListener("click", sendCommand);
 
-    // **🚀 Show Welcome Message when Page Loads**
+    // **🚀 Show Welcome Message on Page Load**
     showWelcomeMessage();
 
     // **🚀 Floating Help Button**
