@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, jsonify
+from llama_cpp import Llama  # Import Llama model
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
+# Initialize Flask app
+app = Flask(__name__)
+
+# Load Vyne AI model
+MODEL_PATH = "/Users/vincentscomputer/vicuna-7b-v1.5-16k.Q6_K.gguf"  # Make sure this is correct
+llm = Llama(model_path=MODEL_PATH, n_gpu_layers=2, n_ctx=2048)
 
 @app.route("/")
 def home():
@@ -9,21 +15,10 @@ def home():
 @app.route("/run-command", methods=["POST"])
 def run_command():
     data = request.get_json()
-    command = data.get("command", "").lower()
+    command = data.get("command", "")
 
-    responses = {
-        "hi": "Hello, I am Vyne. What can I assist you with?",
-        "who are you": "I am Vyne, an advanced AI assistant built by Vincent.",
-        "what can you do": "I analyze, predict, and assist. In this demo, you get a glimpse of my capabilities.",
-        "scan": "🔍 Scanning system files... (Demo Mode)",
-        "analyze": "📊 Analyzing system performance... (Preview Mode)",
-        "execute": "⚡ Executing secure command... (Restricted in demo)",
-        "help": "You can ask: 'Who are you?', 'Scan system', 'Analyze data', or 'Execute'."
-    }
+    # Generate AI response using Llama model
+    response = llm(f"User: {command}\nVyne:", max_tokens=100, temperature=0.7)
+    return jsonify({"response": response["choices"][0]["text"].strip()})
 
-    response = responses.get(command, "❌ Unknown command. Try 'help'.")
-    return jsonify({"response": response})
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
