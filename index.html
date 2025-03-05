@@ -5,43 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vyne – AI That Runs 100% Offline</title>
 
-    <!-- Link Styles -->
+    <!-- 🌌 Vyne Custom Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <!-- 🌟 Fade-in Animation -->
+    <style>
+        body { opacity: 0; transition: opacity 1.5s ease-in-out; }
+    </style>
+</head>
+<body onload="document.body.style.opacity='1'">
+
+    <!-- 🌌 Main Container -->
     <div class="container">
-        <!-- LOGO -->
+
+        <!-- 🔥 Vyne Logo -->
         <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo">
+
+        <!-- ❔ Floating Help Button -->
         <button id="help-button" class="floating-help">❔ Help</button>
 
-        <!-- TITLE & DESCRIPTION -->
+        <!-- 🔥 AI Title & Description -->
         <h1>Vyne – AI That Runs 100% Offline</h1>
         <p class="description">Fully private, adaptive, and powerful. No cloud. No limits.</p>
 
-        <!-- WATCH DEMO BUTTON -->
+        <!-- ▶️ Watch Demo Button -->
         <a href="https://youtu.be/3P_qU4ZhE7k" class="button" target="_blank">▶ Watch Demo</a>
 
-        <!-- FEATURES LIST -->
+        <!-- 🌟 Key Features -->
         <ul class="features">
             <li>⚡ Runs completely offline</li>
             <li>🧠 Learns & adapts over time</li>
             <li>💻 Executes real system commands</li>
         </ul>
 
-        <!-- 🚀 FUTURISTIC TERMINAL -->
+        <!-- 🚀 Futuristic AI Terminal -->
         <div class="terminal">
             <div id="terminal-output"></div>
-            <input type="text" id="command-input" placeholder="Type a command...">
+            <input type="text" id="command-input" placeholder="Type a command..." onkeypress="handleKeyPress(event)">
             <button id="run-button">Run</button>
         </div>
 
-        <!-- CONTACT INFO -->
+        <!-- 📬 Contact Info -->
         <p>Contact me at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
     </div>
 
-    <!-- SCRIPT -->
+    <!-- 🌟 JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>
