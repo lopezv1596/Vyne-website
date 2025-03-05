@@ -1,41 +1,28 @@
 from flask import Flask, render_template, request, jsonify
 
-# Initialize Flask app with proper static and template folder settings
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 @app.route("/run-command", methods=["POST"])
 def run_command():
     data = request.get_json()
-    user_input = data.get("command", "")
+    command = data.get("command", "").lower()
 
-    # Send user input to Vyne’s AI model for a real response
-    response = chat_with_vyne(user_input)  
+    responses = {
+        "hi": "Hello, I am Vyne. What can I assist you with?",
+        "who are you": "I am Vyne, an advanced AI assistant built by Vincent.",
+        "what can you do": "I analyze, predict, and assist. In this demo, you get a glimpse of my capabilities.",
+        "scan": "🔍 Scanning system files... (Demo Mode)",
+        "analyze": "📊 Analyzing system performance... (Preview Mode)",
+        "execute": "⚡ Executing secure command... (Restricted in demo)",
+        "help": "You can ask: 'Who are you?', 'Scan system', 'Analyze data', or 'Execute'."
+    }
 
+    response = responses.get(command, "❌ Unknown command. Try 'help'.")
     return jsonify({"response": response})
-
-
-@app.route("/run-command", methods=["POST"])
-def run_command():
-    """Handle system commands from the frontend."""
-    try:
-        data = request.get_json()
-        command = data.get("command", "").strip().lower()
-
-        # Simulated Vyne Responses
-        responses = {
-            "scan": "Scanning files...",
-            "analyze": "Analyzing system...",
-            "execute": "Executing command...",
-        }
-
-        response = responses.get(command, "Unknown command. Try 'scan', 'analyze', or 'execute'.")
-
-        return jsonify({"response": response})
-
-    except Exception as e:
-        return jsonify({"error": f"Something went wrong: {str(e)}"}), 500
-
 
 if __name__ == "__main__":
     app.run(debug=True)
