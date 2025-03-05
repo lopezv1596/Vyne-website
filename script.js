@@ -1,20 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const terminalOutput = document.getElementById("terminal-output");
     const inputField = document.getElementById("command-input");
+    const runButton = document.getElementById("run-button");
+    const helpButton = document.getElementById("help-button");
 
-    // **🚀 Auto-show a welcome message on page load**
+    // 🚀 **Show Welcome Message on Page Load**
     function showWelcomeMessage() {
         appendToTerminal("🟢 Welcome to Vyne! Ask me anything or try commands like:");
         appendToTerminal("➡️ 'who are you', 'what can you do', 'help', 'scan', 'analyze', 'execute'");
         appendToTerminal("💡 Type your question below and press ENTER.");
     }
 
+    // **Vyne's Response Function**
     function sendCommand() {
         let command = inputField.value.trim().toLowerCase();
         if (command === "") return;
 
         appendToTerminal(`> ${command}`);
-
+       
         // Vyne's AI-like Dynamic Responses
         const responses = {
             "hi": [
