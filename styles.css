@@ -1,15 +1,26 @@
 /* 🔥 Vyne – Cyberpunk AI UI Enhancements */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
+     
 body {
     background-color: #000;
     color: #0ff;
     font-family: 'Orbitron', sans-serif;
     text-align: center;
-    margin: 0;
+    margin: 0;   
     padding: 0;
 }
 
+/* 🔹 Fixes for List Alignment (No More Extra Dots) */
+.features {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+}
+.features li {
+    display: inline-block;
+    text-align: left;
+    padding-left: 10px;
+}
 
 /* Improve spacing for mobile */
 @media (max-width: 768px) {
@@ -36,8 +47,7 @@ body {
         bottom: 15px; /* Moves it up slightly */
     }
 }
-
-
+    
 /* ⚡ Neon Glow for Vyne Logo */
 .logo {
     width: 150px;
@@ -45,25 +55,25 @@ body {
     filter: drop-shadow(0 0 20px #0ff);
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-
+    
 .logo:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 30px #0ff);
 }
-
+ 
 /* 🔥 Title & Subtitle Effects */
 h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
     text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-}
+}   
 
 .description {
     font-size: 1.2rem;
     color: #0ff;
     opacity: 0.8;
 }
-
+    
 /* 🟢 Terminal Styling */
 .terminal {
     background: rgba(0, 0, 0, 0.9);
@@ -77,6 +87,13 @@ h1 {
     box-shadow: 0 0 20px #0ff;
 }
 
+/* 💡 Fix Terminal Width on Large Screens */
+@media screen and (min-width: 1200px) {
+    .terminal {
+        width: 50%; /* Limits excessive stretching */
+    }
+}
+
 .terminal-output {
     color: #00ff99; /* Brighter neon green */
     font-family: "Courier New", monospace;
@@ -84,13 +101,12 @@ h1 {
     text-shadow: 0 0 5px rgba(0, 255, 153, 0.8); /* Slight glow for clarity */
     white-space: pre-wrap; /* Prevents text from cutting off */
 }
-}
 
 /* 🎤 Typing Effect Simulation */
-@keyframes typing {
+@keyframes typing {   
     from { width: 0; }
     to { width: 100%; }
-}
+}   
 
 .typing {
     display: inline-block;
@@ -104,7 +120,7 @@ h1 {
 #command-input {
     width: 80%;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1rem;  
     border: none;
     outline: none;
     background: #000;
@@ -112,7 +128,7 @@ h1 {
     border-bottom: 2px solid #0ff;
     text-align: center;
 }
-
+    
 /* 🔘 Run Button */
 button {
     background: transparent;
@@ -121,18 +137,18 @@ button {
     padding: 8px 16px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    font-size: 1rem;
+    font-size: 1rem;  
     box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.6);
 }
-
+    
 .run-button:hover {
     background: rgba(0, 255, 255, 0.2);
     box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.9); /* Brighter glow */
     transform: scale(1.05); /* Slight enlargement for effect */
-
 }
 
 /* 🔥 Help Button (Floating) */
+
 .floating-help {
     position: fixed;
     bottom: 20px;
@@ -141,29 +157,53 @@ button {
     color: #000;
     border-radius: 50px;
     padding: 12px 20px;
-    cursor: pointer;
+    cursor: pointer; 
     font-weight: bold;
     box-shadow: 0 0 15px #0ff;
 }
-
+ 
 .floating-help:hover {
     background: #fff;
     color: #000;
     box-shadow: 0 0 25px #0ff;
 }
+    
+/* 🔹 Fix Help Button Position on Desktop */
+@media screen and (min-width: 1024px) {
+    .floating-help {
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+/* 🔹 Adjust Waitlist Form on Desktop */
+@media screen and (min-width: 1024px) {
+    .waitlist-section {
+        width: 50%;
+        margin: auto;
+    }
+    .waitlist-button {
+        width: 100%;
+    }
+}
 
 /* 🎬 Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .terminal {
-        width: 90%;
+        width: 90%;   
     }
-
+ 
     h1 {
         font-size: 2rem;
     }
-
+    
     .description {
         font-size: 1rem;
     }
+}
+
+/* 🟢 Fix for Unwanted Extra Dots (Caused by List Formatting) */
+.features li::marker {
+    content: none; /* Removes default bullet styling */
 }
 
