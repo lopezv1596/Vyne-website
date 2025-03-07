@@ -75,9 +75,10 @@ body {
     filter: drop-shadow(0 0 20px #0ff);
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-    
+
+/* Pulsating Glow on Hover */
 .logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     filter: drop-shadow(0 0 30px #0ff);
 }
  
@@ -206,6 +207,11 @@ button {
         width: 100%;
     }
 }
+#waitlist {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.8s; /* Delays fade-in for smoother effect */
+}
 
 /* 🎬 Responsive Adjustments */
 @media screen and (max-width: 768px) {
@@ -225,5 +231,22 @@ button {
 /* 🟢 Fix for Unwanted Extra Dots (Caused by List Formatting) */
 .features li::marker {
     content: none; /* Removes default bullet styling */
+}
+
+/* 🌟 Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Fade-in */
+.logo, h1, .terminal {
+    animation: fadeIn 1.5s ease-in-out;
 }
 
