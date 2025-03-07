@@ -1,6 +1,6 @@
 /* 🔥 Vyne – Cyberpunk AI UI Enhancements */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-     
+
 body {
     background-color: #000;
     color: #0ff;
@@ -22,25 +22,19 @@ body {
     padding-left: 10px;
 }
 
-/* 🖥️ Improve Desktop Layout */
-@media (min-width: 1024px) {
-    .terminal {
-        width: 75%; /* Expands the command box */
-        max-width: 800px; /* Prevents it from stretching too much */
-    }
-
-    .features {
-        width: 60%; /* Centers the feature list */
-        margin: 0 auto; /* Ensures it's properly aligned */
-        text-align: center;
-    }
-
-    .waitlist-section {
-        width: 50%; /* Makes the waitlist section more proportionate */
-        margin: 40px auto; /* Adds spacing and centers it */
-    }
+/* 🟢 Fix for Unwanted Extra Dots (Caused by List Formatting) */
+.features li::marker {
+    content: none; /* Removes default bullet styling */
 }
 
+/* ✅ Subtle Animations for UI Enhancement */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
 
 /* Improve spacing for mobile */
 @media (max-width: 768px) {
@@ -67,7 +61,7 @@ body {
         bottom: 15px; /* Moves it up slightly */
     }
 }
-    
+
 /* ⚡ Neon Glow for Vyne Logo */
 .logo {
     width: 150px;
@@ -75,10 +69,9 @@ body {
     filter: drop-shadow(0 0 20px #0ff);
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-
-/* Pulsating Glow on Hover */
+    
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     filter: drop-shadow(0 0 30px #0ff);
 }
  
@@ -94,7 +87,7 @@ h1 {
     color: #0ff;
     opacity: 0.8;
 }
-    
+
 /* 🟢 Terminal Styling */
 .terminal {
     background: rgba(0, 0, 0, 0.9);
@@ -106,6 +99,7 @@ h1 {
     min-height: 250px;
     overflow-y: auto;
     box-shadow: 0 0 20px #0ff;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect */
 }
 
 /* 💡 Fix Terminal Width on Large Screens */
@@ -149,7 +143,7 @@ h1 {
     border-bottom: 2px solid #0ff;
     text-align: center;
 }
-    
+
 /* 🔘 Run Button */
 button {
     background: transparent;
@@ -181,14 +175,16 @@ button {
     cursor: pointer; 
     font-weight: bold;
     box-shadow: 0 0 15px #0ff;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
 }
  
 .floating-help:hover {
     background: #fff;
     color: #000;
     box-shadow: 0 0 25px #0ff;
+    transform: scale(1.1);
 }
-    
+
 /* 🔹 Fix Help Button Position on Desktop */
 @media screen and (min-width: 1024px) {
     .floating-help {
@@ -207,11 +203,6 @@ button {
         width: 100%;
     }
 }
-#waitlist {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards;
-    animation-delay: 0.8s; /* Delays fade-in for smoother effect */
-}
 
 /* 🎬 Responsive Adjustments */
 @media screen and (max-width: 768px) {
@@ -228,25 +219,27 @@ button {
     }
 }
 
-/* 🟢 Fix for Unwanted Extra Dots (Caused by List Formatting) */
-.features li::marker {
-    content: none; /* Removes default bullet styling */
+/* ✨ Subtle Fade-In Animation for Key Sections */
+@keyframes subtleFade {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: subtleFade 0.8s ease-in-out;
 }
 
-/* 🌟 Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ✅ Hover Glow Effect for Buttons */
+button:hover {
+    background: rgba(0, 255, 255, 0.3);
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 1);
+    transform: scale(1.1);
 }
 
-/* Apply Fade-in */
-.logo, h1, .terminal {
-    animation: fadeIn 1.5s ease-in-out;
+/* ✅ Animation for List Items */
+.features li {
+    transition: transform 0.3s ease-in-out;
+}
+.features li:hover {
+    transform: translateX(5px);
 }
 
