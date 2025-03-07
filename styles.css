@@ -22,6 +22,26 @@ body {
     padding-left: 10px;
 }
 
+/* 🖥️ Improve Desktop Layout */
+@media (min-width: 1024px) {
+    .terminal {
+        width: 75%; /* Expands the command box */
+        max-width: 800px; /* Prevents it from stretching too much */
+    }
+
+    .features {
+        width: 60%; /* Centers the feature list */
+        margin: 0 auto; /* Ensures it's properly aligned */
+        text-align: center;
+    }
+
+    .waitlist-section {
+        width: 50%; /* Makes the waitlist section more proportionate */
+        margin: 40px auto; /* Adds spacing and centers it */
+    }
+}
+
+
 /* Improve spacing for mobile */
 @media (max-width: 768px) {
     body {
