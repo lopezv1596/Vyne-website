@@ -3,77 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vyne – AI That Runs 100% Offline</title>
+    <title>Vyne – The Future of AI, Offline and Independent</title>
 
-    <!-- 🌌 Vyne Custom Styles -->
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!-- 🌟 Fade-in Animation -->
+    <!-- Fade-in Animation -->
     <style>
         body { opacity: 0; transition: opacity 1.5s ease-in-out; }
+        body.loaded { opacity: 1; }
+        .glow {
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF; }
+            to { text-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #00FFFF; }
+        }
     </style>
 </head>
-<body onload="document.body.style.opacity='1'">
+<body onload="document.body.classList.add('loaded')">
 
-    <!-- 🌌 Main Container -->
+    <!-- Main Container -->
     <div class="container">
 
-        <!-- 🔥 Vyne Logo -->
-        <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo">
+        <!-- Vyne Logo with Glow Effect -->
+        <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo glow">
 
-        <!-- ❔ Floating Help Button -->
-        <button id="help-button" class="floating-help">❔ Help</button>
+        <!-- Floating Help Button -->
+        <button id="help-button" class="floating-help glow">❔ Help</button>
 
-        <!-- 🔥 AI Title & Description -->
-        <h1>Vyne</h1>
-        <p class="description">An AI that’s yours. No internet, no dependencies.</p>
+        <!-- AI Title & Description -->
+        <h1 class="glow">Vyne</h1>
+        <p class="description glow">Experience the future of AI – offline, independent, and infinitely adaptable.</p>
 
-        <!-- ▶️ Watch Demo Button -->
-        <a href="https://youtu.be/3P_qU4ZhE7k" class="button" target="_blank">▶ Watch Demo</a>
+        <!-- Watch Demo Button -->
+        <a href="https://youtu.be/3P_qU4ZhE7k" class="button glow" target="_blank">▶ Watch Demo</a>
 
-<!-- 🌟 Key Features -->
-<ul class="features" style="list-style-type: none; padding: 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
-    <li>🔹 Runs completely offline</li>
-    <li>🔹 Learns & adapts over time</li>
-    <li>🔹 Executes real system commands</li>
-</ul>
-
-
-        <!-- 🚀 Futuristic AI Terminal -->
-        <div class="terminal">
-            <div id="terminal-output"></div>
-            <input type="text" id="command-input" placeholder="Type a command..." onkeypress="handleKeyPress(event)">
-            <button id="run-button">Run</button>
+        <!-- Key Features with Icons -->
+        <div class="features-section">
+            <div class="feature">
+                <img src="icons/offline.png" alt="Offline Icon">
+                <h3 class="glow">Completely Offline</h3>
+                <p>Vyne operates without an internet connection, ensuring your data stays private and secure. Experience true independence with AI that works solely on your device.</p>
+            </div>
+            <div class="feature">
+                <img src="icons/adapt.png" alt="Adapt Icon">
+                <h3 class="glow">Adaptive Learning</h3>
+                <p>Vyne learns and adapts over time, continuously improving its performance based on your interactions. Witness AI that evolves with you, becoming smarter and more efficient every day.</p>
+            </div>
+            <div class="feature">
+                <img src="icons/command.png" alt="Command Icon">
+                <h3 class="glow">Real System Commands</h3>
+                <p>Execute real system commands with Vyne, automating tasks and enhancing productivity effortlessly. Harness the power of AI to control your digital environment like never before.</p>
+            </div>
         </div>
 
-        <!-- 📬 Contact Info -->
-        <p>Contact me at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
+        <!-- Futuristic AI Terminal -->
+        <div class="terminal">
+            <div id="terminal-output" class="glow"></div>
+            <input type="text" id="command-input" placeholder="Type a command..." onkeypress="handleKeyPress(event)">
+            <button id="run-button" class="glow">Run</button>
+        </div>
+
+        <!-- Contact Info -->
+        <p class="glow">Contact us at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
+
+        <!-- Waitlist Section -->
+        <div id="waitlist">
+            <p style="color: #00FFFF; font-size: 18px; font-weight: bold; margin-bottom: 10px;">🚀 Vyne is rolling out to select users first.</p>
+            <p style="color: #ffffff; font-size: 16px; margin-bottom: 15px;">Want early access? Join the waitlist.</p>
+            <form action="https://formspree.io/f/xyzegwna" method="POST">
+                <input type="email" name="email" placeholder="Enter your email..." required>
+                <button type="submit" class="glow">Join the Waitlist</button>
+            </form>
+        </div>
     </div>
 
-    <!-- 🌟 JavaScript File -->
+    <!-- JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>
-<!-- Waitlist Section -->
-<div id="waitlist" style="text-align: center; margin-top: 40px; padding: 20px;">
-    <p style="color: #00FFFF; font-size: 18px; font-weight: bold; margin-bottom: 10px;">🚀 Vyne is rolling out to select users first.</p>
-    <p style="color: #ffffff; font-size: 16px; margin-bottom: 15px;">Want early access? Join the waitlist.</p>
-    
-    <form action="https://formspree.io/f/xyzegwna" method="POST" 
-          style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-        
-        <input type="email" name="email" placeholder="Enter your email..." required
-               style="width: 90%; max-width: 280px; padding: 10px; font-size: 16px; 
-                      border-radius: 6px; border: 1px solid cyan; background-color: black;
-                      color: cyan; text-align: center; outline: none; margin-bottom: 12px;">
-        
-        <button type="submit" 
-                style="padding: 12px 24px; font-size: 18px; font-weight: bold;
-                       border: none; background-color: #00FFFF; color: black; border-radius: 6px;
-                       cursor: pointer; transition: 0.3s ease-in-out; width: 90%; max-width: 280px;">
-            Join the Waitlist
-        </button>
-    </form>
-</div>
 
