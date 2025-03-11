@@ -13,13 +13,6 @@
     <style>
         body { opacity: 0; transition: opacity 1.5s ease-in-out; }
         body.loaded { opacity: 1; }
-        .glow {
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF; }
-            to { text-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #00FFFF; }
-        }
     </style>
 </head>
 <body onload="document.body.classList.add('loaded')">
@@ -27,47 +20,47 @@
     <!-- Main Container -->
     <div class="container">
 
-        <!-- Vyne Logo with Glow Effect -->
-        <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo glow">
+        <!-- Vyne Logo -->
+        <img src="images/vyne-logo.png" alt="Vyne Logo" class="logo">
 
         <!-- Floating Help Button -->
-        <button id="help-button" class="floating-help glow">❔ Help</button>
+        <button id="help-button" class="floating-help">❔ Help</button>
 
         <!-- AI Title & Description -->
-        <h1 class="glow">Vyne</h1>
-        <p class="description glow">Experience the future of AI – offline, independent, and infinitely adaptable.</p>
+        <h1>Vyne</h1>
+        <p class="description">Experience the future of AI – offline, independent, and infinitely adaptable.</p>
 
         <!-- Watch Demo Button -->
-        <a href="https://youtu.be/3P_qU4ZhE7k" class="button glow" target="_blank">▶ Watch Demo</a>
+        <a href="https://youtu.be/3P_qU4ZhE7k" class="button" target="_blank">▶ Watch Demo</a>
 
-        <!-- Key Features with Icons -->
+        <!-- Key Features -->
         <div class="features-section">
             <div class="feature">
                 <img src="icons/offline.png" alt="Offline Icon">
-                <h3 class="glow">Completely Offline</h3>
-                <p>Vyne operates without an internet connection, ensuring your data stays private and secure. Experience true independence with AI that works solely on your device.</p>
+                <h3>Completely Offline</h3>
+                <p>Vyne operates without an internet connection, ensuring your data stays private and secure.</p>
             </div>
             <div class="feature">
                 <img src="icons/adapt.png" alt="Adapt Icon">
-                <h3 class="glow">Adaptive Learning</h3>
-                <p>Vyne learns and adapts over time, continuously improving its performance based on your interactions. Witness AI that evolves with you, becoming smarter and more efficient every day.</p>
+                <h3>Adaptive Learning</h3>
+                <p>Vyne learns and adapts over time, continuously improving its performance based on your interactions.</p>
             </div>
             <div class="feature">
                 <img src="icons/command.png" alt="Command Icon">
-                <h3 class="glow">Real System Commands</h3>
-                <p>Execute real system commands with Vyne, automating tasks and enhancing productivity effortlessly. Harness the power of AI to control your digital environment like never before.</p>
+                <h3>Real System Commands</h3>
+                <p>Execute real system commands with Vyne, automating tasks and enhancing productivity effortlessly.</p>
             </div>
         </div>
 
         <!-- Futuristic AI Terminal -->
         <div class="terminal">
-            <div id="terminal-output" class="glow"></div>
+            <div id="terminal-output"></div>
             <input type="text" id="command-input" placeholder="Type a command..." onkeypress="handleKeyPress(event)">
-            <button id="run-button" class="glow">Run</button>
+            <button id="run-button">Run</button>
         </div>
 
         <!-- Contact Info -->
-        <p class="glow">Contact us at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
+        <p>Contact us at <a href="mailto:vynecipher@gmail.com" class="email-link">vynecipher@gmail.com</a></p>
 
         <!-- Waitlist Section -->
         <div id="waitlist">
@@ -75,7 +68,7 @@
             <p style="color: #ffffff; font-size: 16px; margin-bottom: 15px;">Want early access? Join the waitlist.</p>
             <form action="https://formspree.io/f/xyzegwna" method="POST">
                 <input type="email" name="email" placeholder="Enter your email..." required>
-                <button type="submit" class="glow">Join the Waitlist</button>
+                <button type="submit">Join the Waitlist</button>
             </form>
         </div>
     </div>
