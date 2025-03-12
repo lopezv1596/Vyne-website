@@ -1,0 +1,39 @@
+/* Global Styling */
+body {
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Animations */
+.animate-text-fade {
+    opacity: 0;
+    animation: fade-in 1s ease-out forwards;
+}
+
+.animate-button-fade {
+    opacity: 0;
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-feature-fade-in {
+    opacity: 0;
+    animation: fade-in-bottom 1s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-bottom {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

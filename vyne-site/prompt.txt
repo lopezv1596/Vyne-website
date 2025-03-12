@@ -1,0 +1,11 @@
+Generate a complete **futuristic AI landing page** for Vyne, an AI assistant. The design should:
+- Use a **dark cyberpunk** theme with neon blue/purple accents.
+- Feature **smooth animations, 3D parallax effects, and glowing elements**.
+- Have a **hero section with a bold tagline**, a "See Vyne in Action" button, and an animated background.
+- Include a **feature section explaining Vyne’s capabilities**.
+- Be fully responsive and mobile-friendly.
+- Include futuristic hover effects, smooth scrolling, and a sleek navigation bar.
+- Use **HTML, CSS (Tailwind), and JavaScript (GSAP for animations)**.
+
+**Output:** Give me fully formatted code files for `index.html`, `style.css`, and `script.js`.
+
